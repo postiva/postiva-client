@@ -1,4 +1,4 @@
-import { greeter } from '../src/main.js';
+import { greeter } from "../src/main.js";
 
 test('greeter', async () => {
   const greeting = await greeter('Postiva');
