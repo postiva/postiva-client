@@ -1,0 +1,46 @@
+{
+  "name": "@postiva/client",
+  "version": "0.0.0",
+  "description": "Postiva client library",
+  "type": "module",
+  "devDependencies": {
+    "@types/jest": "~29.5",
+    "@types/node": "~20",
+    "@typescript-eslint/eslint-plugin": "~6.15",
+    "@typescript-eslint/parser": "~6.15",
+    "eslint": "~8.56",
+    "eslint-config-prettier": "~9.1",
+    "eslint-plugin-jest": "~27.6",
+    "jest": "~29.7",
+    "prettier": "~3.1",
+    "rimraf": "~5.0",
+    "ts-api-utils": "~1.0",
+    "ts-jest": "~29.1",
+    "typescript": "~5.3"
+  },
+  "scripts": {
+    "start": "node build/src/main.js",
+    "clean": "rimraf coverage build tmp",
+    "dev": "tsx watch ./src/main.ts",
+    "prebuild": "npm run lint",
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc -w -p tsconfig.json",
+    "build:release": "npm run clean && tsc -p tsconfig.release.json",
+    "lint": "eslint . --ext .ts --ext .mts",
+    "test": "jest --coverage",
+    "prettier": "prettier --config .prettierrc --write .",
+    "test:watch": "jest --watch"
+  },
+  "author": {
+    "name": "Postiva",
+    "email": "helo@postiva.app"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "tslib": "~2.6",
+    "tsx": "^4.7.1"
+  },
+  "volta": {
+    "node": "20.10.0"
+  }
+}
