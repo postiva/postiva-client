@@ -15,11 +15,11 @@ export class PostivaClient {
     }
   }
 
-  getApiURL() {
-    return `https://api.postiva.com/api/public/` + this.workspaceId + "/"
+  private getApiURL() {
+    return `https://postiva.app/api/public/` + this.workspaceId + "/"
   }
 
-  fetcher<T>(path: string, options: RequestInit): Promise<T> {
+  private fetcher<T>(path: string, options: RequestInit): Promise<T> {
     const requestOptions = {
       ...options,
       headers: {
@@ -29,6 +29,9 @@ export class PostivaClient {
     };
 
     const url = this.getApiURL() + path;
+
+    console.log("url",url);
+    
 
     return fetch(url, requestOptions)
       .then(response => {
@@ -54,9 +57,11 @@ export class PostivaClient {
     };
 
     return new Proxy(fetchPromise, {
-      get: (target, prop, receiver) => {
+      get: (target, prop:string, receiver) => {
         if (prop === 'pagination') {
           return paginatable.pagination;
+        } else if (['then', 'catch', 'finally'].includes(prop)) {
+          return (...args) => Promise.prototype[prop].apply(target, args);
         }
 
         return Reflect.get(target, prop, receiver);

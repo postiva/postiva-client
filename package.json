@@ -2,8 +2,11 @@
   "name": "postiva",
   "private": true,
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
+    "build": "turbo build --filter=@postiva/client",
+    "dev": "turbo dev --filter=@postiva/client",
+    "playground:dev": "turbo dev --filter=@postiva/playground",
+    "docs:dev": "turbo dev --filter=@postiva/docs",
+    "docs:build": "turbo build --filter=@postiva/docs",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
