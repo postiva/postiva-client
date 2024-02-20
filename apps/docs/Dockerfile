@@ -18,9 +18,9 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=installer /app/ .
 COPY --from=pruner /app/out/full/ .
-RUN pnpm build --filter=@postiva/docs
+RUN pnpm docs:build --filter=@postiva/docs
 
 FROM base AS runner
 WORKDIR /app
 COPY --from=builder /app/ .
-CMD pnpm preview --filter=@postiva/docs
+CMD pnpm docs:preview --filter=@postiva/docs
