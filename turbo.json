@@ -9,6 +9,9 @@
     "lint": {
       "dependsOn": ["^lint"]
     },
+    "docs:preview": {
+      "dependsOn": ["^docs:preview"]
+    },
     "dev": {
       "cache": false,
       "persistent": true
