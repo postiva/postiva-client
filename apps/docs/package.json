@@ -9,6 +9,11 @@
     "preview": "nuxi preview",
     "lint": "eslint ."
   },
+  "overrides": {
+    "vite": {
+      "rollup": "npm:@rollup/wasm-node"
+    }
+  },
   "devDependencies": {
     "@nuxt-themes/docus": "latest",
     "@nuxt/devtools": "^1.0.0",

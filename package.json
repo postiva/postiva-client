@@ -7,6 +7,7 @@
     "playground:dev": "turbo dev --filter=@postiva/playground",
     "docs:dev": "turbo dev --filter=@postiva/docs",
     "docs:build": "turbo build --filter=@postiva/docs",
+    "docs:preview": "turbo preview --filter=@postiva/docs",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },

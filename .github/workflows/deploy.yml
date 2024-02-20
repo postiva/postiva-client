@@ -1,0 +1,21 @@
+name: Deploy to self-hosted runner
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Start containers
+        run: docker compose -f "docker-compose.yml" up -d --build
+
+      - name: Cleanup Docker
+        run: |
+          docker system prune -af
+          docker volume prune -f
+          docker network prune -f
