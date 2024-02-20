@@ -2,6 +2,9 @@
   "name": "@postiva/client",
   "version": "0.0.0",
   "description": "Postiva client library",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "type": "module",
   "devDependencies": {
     "@types/jest": "~29.5",
@@ -16,16 +19,14 @@
     "rimraf": "~5.0",
     "ts-api-utils": "~1.0",
     "ts-jest": "~29.1",
+    "tsup": "^8.0.2",
     "typescript": "~5.3"
   },
   "scripts": {
-    "start": "node build/src/main.js",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "clean": "rimraf coverage build tmp",
-    "dev": "tsx watch ./src/main.ts",
     "prebuild": "npm run lint",
-    "build": "tsc -p tsconfig.json",
-    "build:watch": "tsc -w -p tsconfig.json",
-    "build:release": "npm run clean && tsc -p tsconfig.release.json",
     "lint": "eslint . --ext .ts --ext .mts",
     "test": "jest --coverage",
     "prettier": "prettier --config .prettierrc --write .",
@@ -36,10 +37,6 @@
     "email": "helo@postiva.app"
   },
   "license": "Apache-2.0",
-  "dependencies": {
-    "tslib": "~2.6",
-    "tsx": "^4.7.1"
-  },
   "volta": {
     "node": "20.10.0"
   }

@@ -17,7 +17,8 @@
     "noUnusedParameters": true,
     "noImplicitAny": false,
     "noImplicitThis": false,
-    "strictNullChecks": false
+    "strictNullChecks": false,
   },
+  "files": ["src/libs/types.ts"],
   "include": ["src/**/*", "__tests__/**/*"]
 }
