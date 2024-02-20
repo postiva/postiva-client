@@ -1,5 +1,4 @@
 FROM node:20.11.0 as base
-RUN apk update
 RUN npm install -g pnpm
 
 FROM base AS pruner
