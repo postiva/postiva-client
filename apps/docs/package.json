@@ -1,12 +1,21 @@
 {
   "name": "@postiva/docs",
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "vitepress dev",
-    "build": "vitepress build",
-    "preview": "vitepress preview"
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate",
+    "preview": "nuxi preview",
+    "lint": "eslint ."
   },
   "devDependencies": {
-    "vitepress": "1.0.0-rc.43"
+    "@nuxt-themes/docus": "latest",
+    "@nuxt/devtools": "^1.0.0",
+    "@nuxt/eslint-config": "^0.2.0",
+    "@nuxtjs/plausible": "^0.2.3",
+    "@types/node": "^20.8.2",
+    "eslint": "^8.50.0",
+    "nuxt": "^3.7.4"
   }
-} 
+}

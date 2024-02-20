@@ -1,7 +1,7 @@
 import { postivaClient } from "@/libs/postiva";
 
 export default async function Home() {
-  const posts = await postivaClient.getContents();
+  const posts = await postivaClient.getContents()
 
   return (
     <div>
