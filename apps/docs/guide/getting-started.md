@@ -52,7 +52,3 @@ Currently, there is no online playground available for `@postiva/client`. To get
     ```bash
     node index.js
     ```
-
-::alert{type="success"}
-✨ Congratulations! You've successfully made your first API call using `@postiva/client`. Explore further to integrate more features into your application.
-::

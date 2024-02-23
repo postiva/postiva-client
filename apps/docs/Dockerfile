@@ -1,5 +1,4 @@
-FROM node:alpine as base
-RUN apk update
+FROM node:20.11.0 as base
 RUN npm install -g pnpm
 
 FROM base AS pruner
