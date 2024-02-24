@@ -7,10 +7,4 @@ export default defineNuxtConfig({
     // https://github.com/nuxt-modules/plausible
     "@nuxtjs/plausible",
   ],
-  docus: {
-    title: "Postiva",
-    description:
-      "Your ultimate solution for online documentation and knowledge management.",
-    url: "https://docs.postiva.com",
-  },
 });

@@ -1,10 +1,10 @@
 export default defineAppConfig({
   docus: {
     titleTemplate: "%s - Postiva",
-    title: "Postiva",
+    title: "Documentation",
     description:
       "Your ultimate solution for online documentation and knowledge management.",
-    image: "logo.png",
+    url: "https://docs.postiva.com",
     socials: {
       twitter: "aliosmandev",
       github: "postiva/postiva-js",
