@@ -1,6 +1,6 @@
 ---
-title: "Documentation"
-description: "description"
+title: "Documentation - Postiva.app"
+description: "Craft and deploy your blog swiftly, seamlessly embedding it into any tech stack with REST API support, making your blogging journey effortless and efficient."
 layout: "default"
 aside: false
 ---
