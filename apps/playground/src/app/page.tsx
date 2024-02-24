@@ -1,7 +1,7 @@
 import { postivaClient } from "@/libs/postiva";
 
 export default async function Home() {
-  const posts = await postivaClient.getContents({query: "test"}).pagination({page: 1, size: 1})
+  const posts = await postivaClient.getContents({query: "selam"}).pagination({page: 1, size: 1})
 
   return (
     <div>

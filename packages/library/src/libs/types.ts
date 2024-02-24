@@ -12,14 +12,16 @@ export interface PaginationResponse<T> {
   pagination?: IPagination;
 }
 
+export interface IPaginatinoOptions {
+  page: number;
+  size: number;
+}
+
 export interface PaginatableResponse<T> {
   pagination: ({
     page,
     size,
-  }: {
-    page: number;
-    size: number;
-  }) => Promise<PaginationResponse<T[]>>;
+  }: IPaginatinoOptions) => Promise<PaginationResponse<T[]>>;
 }
 
 export type ContentsResponse<T> = Promise<T[]> & PaginatableResponse<T>;

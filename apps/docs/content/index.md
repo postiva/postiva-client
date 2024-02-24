@@ -30,27 +30,34 @@ To start using `@postiva/client` in your project, follow these steps:
 
 ::code-group
 <!-- prettier-ignore -->
-```bash [Npm]
+```bash [npm]
 npm install @postiva/js
 ```
 <!-- prettier-ignore -->
-```bash [Yarn]
+```bash [yarn]
 yarn add @postiva/js
 ```
 <!-- prettier-ignore -->
-```bash [Pnpm]
+```bash [pnpm]
 pnpm add @postiva/js
 ```
 ::
 
 Next, initialize the Postiva Client in your application by providing your workspace ID and API key:
 
+::code-group
 <!-- prettier-ignore -->
-```javascript[libs/postiva.ts]
-const { PostivaClient } = require('@postiva/client');
+```javascript[libs/postiva.js]
+const { createClient } = require('@postiva/client');
 
-const client = new PostivaClient('yourWorkspaceId', 'yourApiKey');
+const client = createClient('yourWorkspaceId', 'yourApiKey');
 ```
+```typescript[libs/postiva.ts]
+import { createClient } from '@postiva/client'
+
+const client = createClient('yourWorkspaceId', 'yourApiKey');
+```
+::
 
 ## Usage
 
@@ -58,9 +65,10 @@ Here's a simple example to fetch content using the Postiva Client:
 
 ### Fetch the contents
 
+::code-group
 <!-- prettier-ignore -->
-```javascript[pages/index.tsx]
-async function fetchContents() {
+```javascript[getContents]
+async function getContents() {
   try {
     const contents = await client.getContents();
     console.log(contents);
@@ -69,8 +77,39 @@ async function fetchContents() {
   }
 }
 
-fetchContents();
+getContentsWithQuery();
 ```
+<!-- prettier-ignore -->
+```javascript[getContentsWithQuery]
+import { GetContentsType } from '@postiva/client'
+
+async function getContentsWithQuery({ query, type, category }: GetContentsType) {
+  try {
+    const contents = await client.getContents({ query, type, category });
+    console.log(contents);
+  } catch (error) {
+    console.error('Error fetching contents:', error);
+  }
+}
+
+getContentsWithQuery();
+```
+<!-- prettier-ignore -->
+```javascript[getContentsWithPagination]
+import { GetContentsType } from '@postiva/client'
+
+async function getContentsWithPagination({ page, size }: IPaginatinoOptions) {
+  try {
+    const contents = await client.getContents().pagination({ page, size })
+    console.log(contents);
+  } catch (error) {
+    console.error('Error fetching contents:', error);
+  }
+}
+
+getContentsWithPagination();
+```
+::
 
 ### Fetch the content detail
 
@@ -122,11 +161,6 @@ const client = new PostivaClient('yourWorkspaceId');
 - Default: `false`
 
 A secure key used for API authentication.
-
-<!-- prettier-ignore -->
-```typescript[libs/postiva.ts]
-const client = new PostivaClient('yourWorkspaceId', 'apiKey');
-```
 
 ## Contributing
 
