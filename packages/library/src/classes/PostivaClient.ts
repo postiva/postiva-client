@@ -1,6 +1,7 @@
 import {
   Content,
   ContentsResponse,
+  GetContentsType,
   PaginatableResponse,
   PostivaClientOptions,
 } from "../libs/types.js";
@@ -33,32 +34,46 @@ export class PostivaClient {
       },
     };
 
-    const url = this.getApiURL() + path;
+    const url = path.startsWith("https://") ? path : this.getApiURL() + path;
 
-    console.log("url", url);
-
-    return fetch(url, requestOptions).then((response) => {
+    return fetch(url, requestOptions).then(async (response) => {
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`HTTP error! status: ${response.statusText}`);
       }
       return response.json() as Promise<T>;
     });
   }
 
-  getContents(): ContentsResponse<Content> {
+  getContents(filters?: GetContentsType): ContentsResponse<Content> {
     const defaultOptions = {
       method: "GET",
     };
 
+    const url = new URL("contents", this.getApiURL());
+
+    if (filters?.query) {
+      url.searchParams.append("query", filters.query);
+    }
+
+    if (filters?.category) {
+      url.searchParams.append("category", filters.category);
+    }
+
+    if (filters?.type) {
+      url.searchParams.append("type", filters.type);
+    }
+
     const fetchPromise: Promise<Content[]> = this.fetcher(
-      "contents",
+      url.toString(),
       defaultOptions
     );
 
     const paginatable: PaginatableResponse<Content> = {
       pagination: ({ page, size }) => {
-        const path = `contents?page=${page}&size=${size}`;
-        return this.fetcher(path, defaultOptions);
+        if (page) url.searchParams.append("page", page.toString());
+        if (size) url.searchParams.append("size", size.toString());
+
+        return this.fetcher(url.toString(), defaultOptions);
       },
     };
 
