@@ -24,7 +24,7 @@ export interface PaginatableResponse<T> {
   }: IPaginatinoOptions) => Promise<PaginationResponse<T[]>>;
 }
 
-export type ContentsResponse<T> = Promise<T[]> & PaginatableResponse<T>;
+export type ContentsResponse<T> = Promise<T> & PaginatableResponse<T>;
 
 export interface Content {
   id: string;
@@ -40,7 +40,7 @@ export interface Content {
 
 export enum ContentStatusEnum {
   DRAFT = "draft",
-  PUBLISHED = "publish",
+  PUBLISHED = "published",
   TRASH = "trash",
 }
 

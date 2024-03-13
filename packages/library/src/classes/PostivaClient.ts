@@ -1,10 +1,12 @@
 import {
   Content,
+  ContentStatusEnum,
   ContentsResponse,
   GetContentsType,
   PaginatableResponse,
+  PaginationResponse,
   PostivaClientOptions,
-} from "../libs/types.js";
+} from "../libs/types";
 
 export class PostivaClient {
   constructor(
@@ -38,13 +40,17 @@ export class PostivaClient {
 
     return fetch(url, requestOptions).then(async (response) => {
       if (!response.ok) {
+        console.log("response", await response.text());
+
         throw new Error(`HTTP error! status: ${response.statusText}`);
       }
       return response.json() as Promise<T>;
     });
   }
 
-  getContents(filters?: GetContentsType): ContentsResponse<Content> {
+  getContents(
+    filters?: GetContentsType
+  ): ContentsResponse<PaginationResponse<Content[]>> {
     const defaultOptions = {
       method: "GET",
     };
@@ -61,14 +67,16 @@ export class PostivaClient {
 
     if (filters?.type) {
       url.searchParams.append("type", filters.type);
+    } else {
+      url.searchParams.append("type", ContentStatusEnum.PUBLISHED);
     }
 
-    const fetchPromise: Promise<Content[]> = this.fetcher(
+    const fetchPromise: Promise<unknown> = this.fetcher(
       url.toString(),
       defaultOptions
     );
 
-    const paginatable: PaginatableResponse<Content> = {
+    const paginatable: PaginatableResponse<number> = {
       pagination: ({ page, size }) => {
         if (page) url.searchParams.append("page", page.toString());
         if (size) url.searchParams.append("size", size.toString());
@@ -87,7 +95,7 @@ export class PostivaClient {
 
         return Reflect.get(target, prop, receiver);
       },
-    }) as ContentsResponse<Content>;
+    }) as ContentsResponse<PaginationResponse<Content[]>>;
   }
 
   getContent(id: string): Promise<Content> {
