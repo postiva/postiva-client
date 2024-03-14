@@ -1,14 +1,27 @@
 import { postivaClient } from "@/libs/postiva";
+import Image from "next/image";
 
 export default async function Home() {
   const posts = await postivaClient.getContents();
-  console.log("hop", posts);
 
   return (
     <div>
       <h1>Postiva Playground</h1>
 
-      <ul>{posts?.data?.map((post) => <li key={post.id}>{post.title}</li>)}</ul>
+      {posts?.data?.map((post) => (
+        <div key={post.id}>
+          <span>{post.id}</span>
+          <h2>{post.title}</h2>
+          <Image
+            src={post.thumbnail}
+            alt={post.title}
+            width={200}
+            height={200}
+          />
+          <p>{post.body}</p>
+          <p>{post.publishedBy?.user.name}</p>
+        </div>
+      ))}
     </div>
   );
 }

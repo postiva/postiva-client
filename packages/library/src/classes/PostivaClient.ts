@@ -28,7 +28,8 @@ export class PostivaClient {
   }
 
   private fetcher<T>(path: string, options: RequestInit): Promise<T> {
-    const requestOptions = {
+    const requestOptions: RequestInit = {
+      cache: "no-cache",
       ...options,
       headers: {
         ...options.headers,
@@ -48,6 +49,16 @@ export class PostivaClient {
     });
   }
 
+  /**
+   * The function `getContents` retrieves content based on specified filters and supports pagination.
+   * @param {GetContentsType} [filters] - The `filters` parameter in the `getContents` function is of
+   * type `GetContentsType`, which is an object that may contain the following optional properties:
+   * @returns The `getContents` method is returning a `ContentsResponse` object that contains a
+   * `PaginationResponse` object which in turn contains an array of `Content` objects. The method makes a
+   * GET request to retrieve contents based on optional filters such as query, category, and type. It
+   * also allows for pagination by providing a `pagination` function that can be called with page and
+   * size parameters. The method
+   */
   getContents(
     filters?: GetContentsType
   ): ContentsResponse<PaginationResponse<Content[]>> {
@@ -98,7 +109,13 @@ export class PostivaClient {
     }) as ContentsResponse<PaginationResponse<Content[]>>;
   }
 
-  getContent(id: string): Promise<Content> {
+  /**
+   * This function retrieves content by its ID using a GET request.
+   * @param {string} id - The `id` parameter is a string that represents the unique identifier of the
+   * content you want to retrieve.
+   * @returns A Promise that resolves to a Content object.
+   */
+  getContentById(id: string): Promise<Content> {
     const defaultOptions = {
       method: "GET",
     };

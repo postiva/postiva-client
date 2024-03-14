@@ -31,15 +31,15 @@ To start using `@postiva/client` in your project, follow these steps:
 ::code-group
 <!-- prettier-ignore -->
 ```bash [npm]
-npm install @postiva/js
+npm install @postiva/client
 ```
 <!-- prettier-ignore -->
 ```bash [yarn]
-yarn add @postiva/js
+yarn add @postiva/client
 ```
 <!-- prettier-ignore -->
 ```bash [pnpm]
-pnpm add @postiva/js
+pnpm add @postiva/client
 ```
 ::
 
@@ -50,12 +50,12 @@ Next, initialize the Postiva Client in your application by providing your worksp
 ```javascript[libs/postiva.js]
 const { createClient } = require('@postiva/client');
 
-const client = createClient('yourWorkspaceId', 'yourApiKey');
+export const client = createClient('yourWorkspaceId', 'yourApiKey');
 ```
 ```typescript[libs/postiva.ts]
 import { createClient } from '@postiva/client'
 
-const client = createClient('yourWorkspaceId', 'yourApiKey');
+export const client = createClient('yourWorkspaceId', 'yourApiKey');
 ```
 ::
 
@@ -81,9 +81,9 @@ getContentsWithQuery();
 ```
 <!-- prettier-ignore -->
 ```javascript[getContentsWithQuery]
-import { GetContentsType } from '@postiva/client'
+import { GetContentsType, ContentStatusEnum } from '@postiva/client'
 
-async function getContentsWithQuery({ query, type, category }: GetContentsType) {
+async function getContentsWithQuery({ query, type=ContentStatusEnum.published, category }: GetContentsType) {
   try {
     const contents = await client.getContents({ query, type, category });
     console.log(contents);

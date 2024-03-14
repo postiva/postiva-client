@@ -26,16 +26,37 @@ export interface PaginatableResponse<T> {
 
 export type ContentsResponse<T> = Promise<T> & PaginatableResponse<T>;
 
+export interface ContentPublishedBy {
+  role: string;
+  user: {
+    name: string;
+    email: string;
+    image: string;
+  };
+}
+
+export interface ContentCategory {
+  id: string;
+  name: string;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface Content {
   id: string;
   title: string;
   type: string;
   createdAt: string;
   updatedAt: string;
-  category?: string;
+  category: ContentCategory | null;
+  publishedBy: ContentPublishedBy | null;
   slug: string;
-  thumbnail?: string;
-  body?: string;
+  thumbnail: string;
+  body: string;
+  seoTitle: string;
+  seoDescription: string;
+  seoThumbnail: string;
 }
 
 export enum ContentStatusEnum {
