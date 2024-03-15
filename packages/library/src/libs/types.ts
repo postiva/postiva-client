@@ -58,6 +58,7 @@ export interface Content {
   seoTitle: string | null;
   seoDescription: string | null;
   seoThumbnail: string | null;
+  readingStatus: ContentReadingStatus | null;
 }
 
 export interface ContentReadingStatus {

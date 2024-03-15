@@ -27,7 +27,22 @@ export class PostivaClient {
     return `https://postiva.app/api/public/` + this.workspaceId + "/";
   }
 
-  private fetcher<T>(path: string, options: RequestInit): Promise<T> {
+  /**
+   * The function `fetcher` in TypeScript is an asynchronous method that fetches data from a specified
+   * path with custom options and error handling.
+   * @param {string} path - The `path` parameter in the `fetcher` function is a string representing the
+   * URL path or endpoint to which the HTTP request will be made. It can be a relative path or a full URL
+   * starting with "https://".
+   * @param {RequestInit} options - The `options` parameter in the `fetcher` function is of type
+   * `RequestInit`, which is an interface representing the options that can be passed to the `fetch`
+   * function in JavaScript for making HTTP requests. It includes properties like `method`, `headers`,
+   * `body`, `mode`, `
+   * @returns The `fetcher` function is returning a `Promise` that resolves to a value of type `T`. The
+   * function makes a request to a specified `path` using the `fetch` API with the provided `options`. It
+   * then processes the response and returns the JSON data from the response as a `Promise<T>`. If there
+   * is an error during the fetch operation, it will log the error
+   */
+  private async fetcher<T>(path: string, options: RequestInit): Promise<T> {
     const requestOptions: RequestInit = {
       cache: "no-cache",
       ...options,
@@ -39,14 +54,19 @@ export class PostivaClient {
 
     const url = path.startsWith("https://") ? path : this.getApiURL() + path;
 
-    return fetch(url, requestOptions).then(async (response) => {
+    try {
+      const response = await fetch(url, requestOptions);
+
       if (!response.ok) {
         console.log("response", await response.text());
-
         throw new Error(`HTTP error! status: ${response.statusText}`);
       }
+
       return response.json() as Promise<T>;
-    });
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      throw error;
+    }
   }
 
   /**
