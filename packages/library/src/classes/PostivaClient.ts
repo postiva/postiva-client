@@ -122,4 +122,12 @@ export class PostivaClient {
 
     return this.fetcher(`contents/${id}`, defaultOptions);
   }
+
+  getContentBySlug(slug: string): Promise<Content> {
+    const defaultOptions = {
+      method: "GET",
+    };
+
+    return this.fetcher(`contents/slug/${slug}`, defaultOptions);
+  }
 }
