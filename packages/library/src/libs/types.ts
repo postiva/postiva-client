@@ -7,6 +7,10 @@ export interface IPagination {
   totalPages: number;
 }
 
+export interface APIResponse<T> {
+  data: T;
+}
+
 export interface PaginationResponse<T> {
   data: T;
   pagination?: IPagination;

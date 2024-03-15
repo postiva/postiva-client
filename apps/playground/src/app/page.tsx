@@ -13,7 +13,7 @@ export default async function Home() {
           <span>{post.id}</span>
           <h2>{post.title}</h2>
           <Image
-            src={post.thumbnail}
+            src={post.thumbnail as string}
             alt={post.title}
             width={200}
             height={200}

@@ -1,4 +1,5 @@
 import {
+  APIResponse,
   Content,
   ContentStatusEnum,
   ContentsResponse,
@@ -130,24 +131,44 @@ export class PostivaClient {
   }
 
   /**
-   * This function retrieves content by its ID using a GET request.
-   * @param {string} id - The `id` parameter is a string that represents the unique identifier of the
-   * content you want to retrieve.
-   * @returns A Promise that resolves to a Content object.
+   * This function asynchronously retrieves content data by its ID using a GET request.
+   * @param {string} id - The `id` parameter in the `getContentById` function is a string that represents
+   * the unique identifier of the content you want to retrieve. This function makes an asynchronous
+   * request to fetch content data based on this identifier.
+   * @returns The `getContentById` function is returning a Promise that resolves to a `Content` object
+   * fetched from the API endpoint `contents/`.
    */
-  getContentById(id: string): Promise<Content> {
+  async getContentById(id: string): Promise<Content> {
     const defaultOptions = {
       method: "GET",
     };
 
-    return this.fetcher(`contents/${id}`, defaultOptions);
+    const { data } = await this.fetcher<APIResponse<Content>>(
+      `contents/${id}`,
+      defaultOptions
+    );
+
+    return data;
   }
 
-  getContentBySlug(slug: string): Promise<Content> {
+  /**
+   * This function asynchronously fetches content data based on a provided slug.
+   * @param {string} slug - The `slug` parameter in the `getContentBySlug` function is a string that
+   * represents a unique identifier for the content you want to retrieve. It is used to fetch the content
+   * with the specified slug from the server.
+   * @returns The `getContentBySlug` function is returning a Promise that resolves to a `Content` object
+   * fetched from the API based on the provided `slug`.
+   */
+  async getContentBySlug(slug: string): Promise<Content> {
     const defaultOptions = {
       method: "GET",
     };
 
-    return this.fetcher(`contents/slug/${slug}`, defaultOptions);
+    const { data } = await this.fetcher<APIResponse<Content>>(
+      `contents/slug/${slug}`,
+      defaultOptions
+    );
+
+    return data;
   }
 }
