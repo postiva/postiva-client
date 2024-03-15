@@ -38,7 +38,7 @@ export interface ContentPublishedBy {
 export interface ContentCategory {
   id: string;
   name: string;
-  description: string;
+  description: string | null;
   createdAt: string;
   updatedAt: string;
 }
@@ -52,11 +52,18 @@ export interface Content {
   category: ContentCategory | null;
   publishedBy: ContentPublishedBy | null;
   slug: string;
-  thumbnail: string;
+  thumbnail: string | null;
   body: string;
-  seoTitle: string;
-  seoDescription: string;
-  seoThumbnail: string;
+  html: string;
+  seoTitle: string | null;
+  seoDescription: string | null;
+  seoThumbnail: string | null;
+}
+
+export interface ContentReadingStatus {
+  time: number;
+  wordsCount: number;
+  minutes: number;
 }
 
 export enum ContentStatusEnum {
