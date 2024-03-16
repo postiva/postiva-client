@@ -55,6 +55,8 @@ export interface Content {
   updatedAt: string;
   category: ContentCategory | null;
   publishedBy: ContentPublishedBy | null;
+  description: string;
+  publishedAt: string | null;
   slug: string;
   thumbnail: string | null;
   body: string;
