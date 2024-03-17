@@ -2,7 +2,7 @@ import { postivaClient } from "@/libs/postiva";
 import Image from "next/image";
 
 export default async function Home() {
-  const posts = await postivaClient.getContents();
+  const posts = await postivaClient.contents.getContents();
 
   return (
     <div>
