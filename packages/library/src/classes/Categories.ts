@@ -3,6 +3,7 @@ import {
   APIResponse,
   ContentCategory,
   ContentsResponse,
+  GetCategoriesType,
   GetContentsType,
   PaginatableResponse,
   PaginationResponse,
@@ -39,7 +40,7 @@ export class Categories {
    * behavior for the `pagination` property.
    */
   getCategories(
-    filters?: GetContentsType
+    filters?: GetCategoriesType
   ): ContentsResponse<PaginationResponse<ContentCategory[]>> {
     const defaultOptions = {
       method: "GET",

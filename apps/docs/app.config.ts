@@ -13,6 +13,7 @@ export default defineAppConfig({
         href: "https://postiva.com",
       },
     },
+
     github: {
       dir: "docs/content",
       branch: "main",
@@ -20,9 +21,22 @@ export default defineAppConfig({
       edit: true,
       owner: "Postiva Inc.",
     },
+
+    aside: {
+      level: 0,
+      collapsed: false,
+      exclude: [],
+    },
+
+    main: {
+      padded: true,
+      fluid: true,
+    },
+
     header: {
       logo: true,
       showLinkIcon: true,
+      fluid: true,
     },
   },
 });

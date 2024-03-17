@@ -84,3 +84,7 @@ export interface GetContentsType {
   category?: string;
   type?: ContentStatusEnum;
 }
+
+export interface GetCategoriesType {
+  query?: string;
+}
