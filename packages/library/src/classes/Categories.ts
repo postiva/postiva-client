@@ -4,7 +4,6 @@ import {
   ContentCategory,
   ContentsResponse,
   GetCategoriesType,
-  GetContentsType,
   PaginatableResponse,
   PaginationResponse,
   PostivaClientOptions,

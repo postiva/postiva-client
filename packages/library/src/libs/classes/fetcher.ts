@@ -56,7 +56,7 @@ export class Fetcher {
       return response.json() as Promise<T>;
     } catch (error) {
       console.error("Error fetching data:", error);
-      throw error;
+      // throw error;
     }
   }
 }
