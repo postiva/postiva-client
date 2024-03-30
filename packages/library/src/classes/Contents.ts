@@ -4,6 +4,7 @@ import {
   Content,
   ContentStatusEnum,
   ContentsResponse,
+  DetailContent,
   GetContentsType,
   PaginatableResponse,
   PaginationResponse,
@@ -96,12 +97,12 @@ export class Contents {
    * @returns The `getContentById` function is returning a Promise that resolves to a `Content` object
    * fetched from the API endpoint `contents/`.
    */
-  async getContentById(id: string): Promise<Content> {
+  async getContentById(id: string): Promise<DetailContent> {
     const defaultOptions = {
       method: "GET",
     };
 
-    const { data } = await this.fetcher.request<APIResponse<Content>>(
+    const { data } = await this.fetcher.request<APIResponse<DetailContent>>(
       `contents/${id}`,
       defaultOptions
     );
@@ -117,12 +118,12 @@ export class Contents {
    * @returns The `getContentBySlug` function is returning a Promise that resolves to a `Content` object
    * fetched from the API endpoint `contents/slug/`.
    */
-  async getContentBySlug(slug: string): Promise<Content> {
+  async getContentBySlug(slug: string): Promise<DetailContent> {
     const defaultOptions = {
       method: "GET",
     };
 
-    const { data } = await this.fetcher.request<APIResponse<Content>>(
+    const { data } = await this.fetcher.request<APIResponse<DetailContent>>(
       `contents/slug/${slug}`,
       defaultOptions
     );

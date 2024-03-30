@@ -47,6 +47,17 @@ export interface ContentCategory {
   updatedAt: string;
 }
 
+export interface ContentAnalytics {
+  views: number;
+  likes: number;
+  comments: number;
+  shares: number;
+}
+
+export interface DetailContent extends Content {
+  analytics: ContentAnalytics;
+}
+
 export interface Content {
   id: string;
   title: string;
