@@ -124,7 +124,20 @@ export class Contents {
     };
 
     const { data } = await this.fetcher.request<APIResponse<DetailContent>>(
-      `contents/slug/${slug}`,
+      `contents/search/${slug}`,
+      defaultOptions
+    );
+
+    return data;
+  }
+
+  async searchContents(query: string): Promise<Content[]> {
+    const defaultOptions = {
+      method: "GET",
+    };
+
+    const { data } = await this.fetcher.request<APIResponse<Content[]>>(
+      `contents/search?query=${query}`,
       defaultOptions
     );
 
