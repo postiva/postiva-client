@@ -23,7 +23,7 @@ export class PostivaClient {
 
     this.workspaceId = workspaceId;
     this.apiKey = apiKey;
-    this.contents = new Contents(this.workspaceId, this.apiKey);
-    this.categories = new Categories(this.workspaceId, this.apiKey);
+    this.contents = new Contents(this.workspaceId, this.apiKey, _options);
+    this.categories = new Categories(this.workspaceId, this.apiKey, _options);
   }
 }

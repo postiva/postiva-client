@@ -26,7 +26,7 @@ export class Contents {
       throw new Error("apiKey is required");
     }
 
-    this.fetcher = new Fetcher(this.workspaceId, this.apiKey);
+    this.fetcher = new Fetcher(this.workspaceId, this.apiKey, _options);
   }
 
   /**

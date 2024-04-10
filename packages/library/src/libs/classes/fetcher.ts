@@ -4,7 +4,7 @@ export class Fetcher {
   constructor(
     protected workspaceId: string,
     protected apiKey: string,
-    _options?: PostivaClientOptions
+    protected _options?: PostivaClientOptions
   ) {
     if (!workspaceId) {
       throw new Error("workspaceId is required");
@@ -36,14 +36,18 @@ export class Fetcher {
   async request<T>(path: string, options: RequestInit): Promise<T> {
     const requestOptions: RequestInit = {
       cache: "no-cache",
-      ...options,
       headers: {
         ...options.headers,
         Apikey: this.apiKey,
       },
+      ...options,
     };
 
     const url = path.startsWith("https://") ? path : this.getApiURL() + path;
+
+    if (this._options?.debug) {
+      console.log(`Request to ${url} with options: `, requestOptions);
+    }
 
     try {
       const response = await fetch(url, requestOptions);
