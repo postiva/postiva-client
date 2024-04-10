@@ -52,6 +52,7 @@ export interface ContentAnalytics {
   likes: number;
   comments: number;
   shares: number;
+  claps: number;
 }
 
 export interface DetailContent extends Content {
@@ -76,6 +77,7 @@ export interface Content {
   seoDescription: string | null;
   seoThumbnail: string | null;
   readingStatus: ContentReadingStatus | null;
+  analytics: ContentAnalytics | null;
 }
 
 export interface ContentReadingStatus {

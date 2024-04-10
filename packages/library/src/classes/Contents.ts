@@ -143,4 +143,23 @@ export class Contents {
 
     return data;
   }
+
+  /**
+   * This TypeScript function asynchronously sends a POST request to increment the number of claps for a
+   * specific content ID and returns the updated number of claps.
+   * @param {string} id - The `id` parameter in the `clap` function is a string that represents the
+   * identifier of the content for which the user wants to submit a clap.
+   * @returns The `clap` function is returning a Promise that resolves to a number.
+   */
+  async clap(id: string): Promise<number> {
+    const defaultOptions = {
+      method: "POST",
+    };
+
+    const response = await this.fetcher.request<{ data: number }>(
+      `contents/${id}/claps`,
+      defaultOptions
+    );
+    return response.data;
+  }
 }
