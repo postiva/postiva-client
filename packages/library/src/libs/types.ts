@@ -1,4 +1,6 @@
-export interface PostivaClientOptions {}
+export interface PostivaClientOptions {
+  debug?: boolean;
+}
 
 export interface IPagination {
   page: number;

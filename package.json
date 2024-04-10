@@ -8,6 +8,7 @@
     "docs:dev": "turbo dev --filter=@postiva/docs",
     "docs:build": "turbo build --filter=@postiva/docs",
     "docs:preview": "turbo preview --filter=@postiva/docs",
+    "publish:package": "cd ./packages/library && npm publish",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },

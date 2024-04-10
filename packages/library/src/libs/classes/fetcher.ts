@@ -50,7 +50,9 @@ export class Fetcher {
 
       if (!response.ok) {
         console.log("response", await response.text());
-        throw new Error(`HTTP error! status: ${response.statusText}`);
+        throw new Error(
+          `HTTP error! status: ${response.statusText} url: ${url}`
+        );
       }
 
       return response.json() as Promise<T>;

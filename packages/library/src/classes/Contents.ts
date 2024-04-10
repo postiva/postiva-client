@@ -124,7 +124,7 @@ export class Contents {
     };
 
     const { data } = await this.fetcher.request<APIResponse<DetailContent>>(
-      `contents/search/${slug}`,
+      `contents/slug/${slug}`,
       defaultOptions
     );
 
