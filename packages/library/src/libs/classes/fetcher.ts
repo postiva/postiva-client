@@ -40,6 +40,8 @@ export class Fetcher {
       headers: {
         ...options.headers,
         Apikey: this.apiKey,
+        Accept: "application/json",
+        "Content-Type": "application/json",
       },
       ...options,
     };

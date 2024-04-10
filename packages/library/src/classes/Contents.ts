@@ -156,10 +156,10 @@ export class Contents {
       method: "POST",
     };
 
-    const response = await this.fetcher.request<{ data: number }>(
+    const { data } = await this.fetcher.request<{ data: number }>(
       `contents/${id}/claps`,
       defaultOptions
     );
-    return response.data;
+    return data;
   }
 }
