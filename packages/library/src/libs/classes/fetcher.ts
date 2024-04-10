@@ -36,6 +36,7 @@ export class Fetcher {
   async request<T>(path: string, options: RequestInit): Promise<T> {
     const requestOptions: RequestInit = {
       cache: "no-cache",
+      mode: "no-cors",
       headers: {
         ...options.headers,
         Apikey: this.apiKey,
