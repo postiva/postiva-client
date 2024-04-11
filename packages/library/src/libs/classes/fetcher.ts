@@ -36,13 +36,10 @@ export class Fetcher {
   async request<T>(path: string, options: RequestInit): Promise<T> {
     const requestOptions: RequestInit = {
       cache: "no-cache",
-      mode: "no-cors",
-      headers: {
-        ...options.headers,
-        Apikey: this.apiKey,
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
+      // headers: {
+      //   ...options.headers,
+      //   Apikey: this.apiKey,
+      // },
       ...options,
     };
 
@@ -56,7 +53,9 @@ export class Fetcher {
       const response = await fetch(url, requestOptions);
 
       if (!response.ok) {
-        console.log("response", await response.text());
+        if (this._options?.debug) {
+          console.log("response", await response.text());
+        }
         throw new Error(
           `HTTP error! status: ${response.statusText} url: ${url}`
         );

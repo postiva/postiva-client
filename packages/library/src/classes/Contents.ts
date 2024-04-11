@@ -153,13 +153,15 @@ export class Contents {
    */
   async clap(id: string): Promise<number> {
     const defaultOptions = {
-      method: "POST",
+      method: "post",
     };
 
-    const { data } = await this.fetcher.request<{ data: number }>(
+    const response = await this.fetcher.request<{ data: number }>(
       `contents/${id}/claps`,
       defaultOptions
     );
-    return data;
+    console.log("response burada", response);
+
+    return response.data;
   }
 }

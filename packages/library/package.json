@@ -3,12 +3,13 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.0.20",
-  "description": "Postiva client library",
+  "version": "0.0.23",
+  "description": "A comprehensive library for managing and retrieving content within your applications, @postiva/client streamlines your interaction with the Postiva platform, ensuring your content is always current and easily accessible.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
+    "README.md",
     "dist"
   ],
   "type": "module",

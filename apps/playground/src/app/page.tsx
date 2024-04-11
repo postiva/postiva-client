@@ -1,27 +1,15 @@
+import PostCard from "@/components/post";
 import { postivaClient } from "@/libs/postiva";
-import Image from "next/image";
 
 export default async function Home() {
   const posts = await postivaClient.contents.getContents();
 
+  const test = await postivaClient.contents.clap("z7g35qz63a52cj5562z5xboj");
+
   return (
     <div>
       <h1>Postiva Playground</h1>
-
-      {posts?.data?.map((post) => (
-        <div key={post.id}>
-          <span>{post.id}</span>
-          <h2>{post.title}</h2>
-          <Image
-            src={post.thumbnail as string}
-            alt={post.title}
-            width={200}
-            height={200}
-          />
-          <p>{post.body}</p>
-          <p>{post.publishedBy?.user.name}</p>
-        </div>
-      ))}
+      {posts?.data?.map((post) => <PostCard key={post.id} post={post} />)}
     </div>
   );
 }

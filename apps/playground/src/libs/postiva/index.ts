@@ -1,6 +1,6 @@
 import { createClient } from "@postiva/client";
 
 export const postivaClient = createClient(
-  "o9jpfjotju8s6cw67lu4ki45",
+  "oip3gwx42bvjpp1bvhcsaq7d",
   "QrZV8rg468SzE8wk8j9Vyw=="
 );
