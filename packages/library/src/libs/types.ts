@@ -82,6 +82,10 @@ export interface Content {
   analytics: ContentAnalytics | null;
 }
 
+export interface ClapParams {
+  count: number;
+}
+
 export interface ContentReadingStatus {
   time: number;
   wordsCount: number;

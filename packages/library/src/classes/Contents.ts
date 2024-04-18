@@ -1,6 +1,7 @@
 import { Fetcher } from "../libs/classes/fetcher";
 import {
   APIResponse,
+  ClapParams,
   Content,
   ContentStatusEnum,
   ContentsResponse,
@@ -151,16 +152,16 @@ export class Contents {
    * identifier of the content for which the user wants to submit a clap.
    * @returns The `clap` function is returning a Promise that resolves to a number.
    */
-  async clap(id: string): Promise<number> {
-    const defaultOptions = {
+  async clap(id: string, { count }: ClapParams): Promise<number> {
+    const defaultOptions: RequestInit = {
       method: "post",
+      body: JSON.stringify({ count }),
     };
 
     const response = await this.fetcher.request<{ data: number }>(
       `contents/${id}/claps`,
       defaultOptions
     );
-    console.log("response burada", response);
 
     return response.data;
   }
