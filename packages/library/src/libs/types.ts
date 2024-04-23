@@ -67,7 +67,7 @@ export interface Content {
   type: string;
   createdAt: string;
   updatedAt: string;
-  category: ContentCategory | null;
+  categories: ContentCategory[];
   publishedBy: ContentPublishedBy | null;
   description: string | null;
   publishedAt: string | null;
