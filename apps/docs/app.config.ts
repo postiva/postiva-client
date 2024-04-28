@@ -3,7 +3,7 @@ export default defineAppConfig({
     titleTemplate: "%s - Postiva",
     title: "Documentation",
     description:
-      "Your ultimate solution for online documentation and knowledge management.",
+      "Boost your digital presence effortlessly with Postiva's SDK. Learn to integrate streamlined content management into your apps for enhanced visibility and engagement",
     url: "https://docs.postiva.com",
     socials: {
       twitter: "aliosmandev",
@@ -13,6 +13,8 @@ export default defineAppConfig({
         href: "https://postiva.com",
       },
     },
+
+    image: "/images/og_image.png",
 
     github: {
       dir: "docs/content",
