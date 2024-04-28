@@ -11,15 +11,15 @@ FROM base AS installer
 WORKDIR /app
 COPY --from=pruner /app/out/json/ .
 COPY --from=pruner /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
-RUN pnpm install --frozen-lockfile
+RUN export COREPACK_ENABLE_STRICT=0 && pnpm install --frozen-lockfile
 
 FROM base AS builder
 WORKDIR /app
 COPY --from=installer /app/ .
 COPY --from=pruner /app/out/full/ .
-RUN pnpm docs:build
+RUN export COREPACK_ENABLE_STRICT=0 && pnpm docs:build
 
 FROM base AS runner
 WORKDIR /app
 COPY --from=builder /app/ .
-CMD pnpm docs:preview
+CMD export COREPACK_ENABLE_STRICT=0 && pnpm docs:preview
