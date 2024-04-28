@@ -14,7 +14,7 @@ export default defineAppConfig({
       },
     },
 
-    image: "/images/og_image.png",
+    image: "/og_image.png",
 
     github: {
       dir: "docs/content",
