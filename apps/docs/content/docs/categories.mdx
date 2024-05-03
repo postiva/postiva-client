@@ -1,22 +1,20 @@
 ---
 title: Categories
-description: "The `categories` module provides methods to interact with the categories API."
+description: Methods for managing categories in Postiva
+icon: Folders
 ---
-
-# Categories
 
 The `categories` module provides methods to interact with the categories API.
 
-### `getCategories`
+## getCategories
 
-- **Parameters**
-  - query?: `string`
-- **Returns:** [`CategoriesResponse<PaginationResponse<ContentCategory[]>>`](types#categoriesresponse)
+Get all contents from the workspace.
 
-retreive categories from the API.
+<Tabs items={['Basic', 'With parameters', 'With Pagination']}>
+  <Tab value="Basic">
+```typescript
+import { postivaClient } from "@/libs/postiva";
 
-::code-group
-```typescript [Basic]
 async function getCategories() {
   try {
     const categories = await postivaClient.categories.getCategories();
@@ -26,29 +24,37 @@ async function getCategories() {
   }
 }
 ```
-```ts [With parameters]
+  </Tab>
+  <Tab value="With parameters">
+```typescript
+import { postivaClient } from "@/libs/postiva";
 import { GetCategoriesType } from '@postiva/client'
 
 async function getCategoriesWithQuery({ query }: GetCategoriesType) {
   try {
-    const categories = await client.getCategories({ query });
+    const categories = await postivaClient.categories.getCategories({ query });
     console.log(categories);
   } catch (error) {
     console.error('Error fetching categories:', error);
   }
 }
-```
-::
+```  
+  </Tab>
+</Tabs>
 
-### `getCategoryById`
+### Parameters
 
-- **Parameters**
-  - id: `string`
-- **Returns:** [`Promise<ContentCategory>`](types#categoriesresponse)
+import { AutoTypeTable } from 'fumadocs-typescript/ui';
 
-retreive a single category by its ID.
+<AutoTypeTable path="./content/docs/props.ts" name="GetCategoriesType" />
+
+## getCategoryById
+
+Get a category by its ID.
 
 ```typescript
+import { postivaClient } from "@/libs/postiva";
+
 async function getCategoryById(id: string) {
   try {
     const category = await postivaClient.categories.getCategoryById(id);

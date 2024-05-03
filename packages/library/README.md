@@ -32,7 +32,10 @@ To start using `@postiva/client` in your project, initialize the client by provi
 import { createClient } = from "@postiva/client"
 
 // Initialize Postiva Client
-const client = createClient('yourWorkspaceId', 'yourApiKey');
+export const postivaClient = createClient({
+  workspaceId: process.env.NEXT_PUBLIC_WORKSPACE_ID,
+  apiKey: process.env.NEXT_PUBLIC_POSTIVA_API_KEY
+});
 ```
 
 ### Rest API Documentation

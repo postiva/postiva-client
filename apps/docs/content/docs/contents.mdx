@@ -1,24 +1,20 @@
 ---
 title: Contents
-description: "The `contents` module provides methods to interact with the contents API."
+description: Methods for managing content in Postiva
+icon: Files
 ---
-
-# Contents
 
 The `contents` module provides methods to interact with the contents API.
 
-### `getContents`
+## GetContents
 
-- **Parameters**
-  - query?: `string`
-  - category?: `string`
-  - type?: `GetContentsType`
-- **Returns:** [`ContentsResponse<PaginationResponse<Content[]>>`](types#contentsresponse)
+Get all contents from the workspace.
 
-retreive contents from the API.
+<Tabs items={['Basic', 'With parameters', 'With Pagination']}>
+  <Tab value="Basic">
+```typescript
+import { postivaClient } from "@/libs/postiva";
 
-::code-group
-```typescript [Basic]
 async function getContents() {
   try {
     const contents = await postivaClient.contents.getContents();
@@ -28,7 +24,10 @@ async function getContents() {
   }
 }
 ```
-```ts [With parameters]
+  </Tab>
+  <Tab value="With parameters">
+```typescript
+import { postivaClient } from "@/libs/postiva";
 import { GetContentsType, ContentStatusEnum } from '@postiva/client'
 
 async function getContentsWithQuery({ query, type=ContentStatusEnum.published, category }: GetContentsType) {
@@ -39,8 +38,11 @@ async function getContentsWithQuery({ query, type=ContentStatusEnum.published, c
     console.error('Error fetching contents:', error);
   }
 }
-```
-```ts [With pagination]
+```  
+  </Tab>
+  <Tab value="With Pagination">
+```typescript
+import { postivaClient } from "@/libs/postiva";
 import { GetContentsType, ContentStatusEnum } from '@postiva/client'
 
 async function getContentsWithPagination({ query, type=ContentStatusEnum.published, category }: GetContentsType) {
@@ -51,18 +53,23 @@ async function getContentsWithPagination({ query, type=ContentStatusEnum.publish
     console.error('Error fetching contents:', error);
   }
 }
-```
-::
+```  
+  </Tab>
+</Tabs>
 
-### `searchContents`
+### Parameters
 
-- **Parameters**
-  - query: `string`
-- **Returns:** [`Promise<Content[]>`](types#contentsresponse)
+import { AutoTypeTable } from 'fumadocs-typescript/ui';
 
-search contents by query.
+<AutoTypeTable path="./content/docs/props.ts" name="GetContentsType" />
+
+## searchContents
+
+Search for contents in the workspace.
 
 ```typescript
+import { postivaClient } from "@/libs/postiva";
+
 async function searchContents(query: string) {
   try {
     const content = await postivaClient.contents.searchContents(query);
@@ -73,15 +80,14 @@ async function searchContents(query: string) {
 }
 ```
 
-### `getContentById`
 
-- **Parameters**
-  - id: `string`
-- **Returns:** [`Promise<Content>`](types#contentsresponse)
+## getContentById
 
-retreive a single content by its ID.
+Get a content by its ID.
 
 ```typescript
+import { postivaClient } from "@/libs/postiva";
+
 async function getContentById(id: string) {
   try {
     const content = await postivaClient.contents.getContentById(id);
@@ -92,15 +98,13 @@ async function getContentById(id: string) {
 }
 ```
 
-### `getContentBySlug`
+## getContentBySlug
 
-- **Parameters**
-  - slug: `string`
-- **Returns:** [`Promise<Content>`](types#contentsresponse)
-
-retreive a single content by its slug.
+Get a content by its slug.
 
 ```typescript
+import { postivaClient } from "@/libs/postiva";
+
 async function getContentBySlug(slug: string) {
   try {
     const content = await postivaClient.contents.getContentBySlug(slug);
@@ -111,22 +115,19 @@ async function getContentBySlug(slug: string) {
 }
 ```
 
-### `clap`
+## Clap
 
-- **Parameters**
-  - id: `string`
-- **Returns:** `Promise<number>`
-
-clap a content.
+Clap for a content.
 
 ```typescript
+import { postivaClient } from "@/libs/postiva";
+
 async function clapContent(id: string) {
   try {
-    const claps = await postivaClient.contents.clap(id);
-    console.log(claps);
+    const content = await postivaClient.contents.calp(id);
+    console.log(content);
   } catch (error) {
     console.error('Error clapping content:', error);
   }
 }
 ```
-

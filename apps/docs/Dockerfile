@@ -1,4 +1,5 @@
-FROM node:20.11.0 as base
+FROM node:alpine as base
+RUN apk update
 RUN npm install -g pnpm
 
 FROM base AS pruner
@@ -17,9 +18,9 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=installer /app/ .
 COPY --from=pruner /app/out/full/ .
-RUN export COREPACK_ENABLE_STRICT=0 && pnpm docs:build
+RUN export COREPACK_ENABLE_STRICT=0 && pnpm build --filter=@postiva/web
 
 FROM base AS runner
 WORKDIR /app
 COPY --from=builder /app/ .
-CMD export COREPACK_ENABLE_STRICT=0 && pnpm docs:preview
+CMD export COREPACK_ENABLE_STRICT=0 && pnpm start --filter=@postiva/web

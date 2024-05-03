@@ -1,0 +1,89 @@
+---
+title: Quick Start
+description: Getting started with @postiva/client
+icon: Album
+---
+import { AutoTypeTable } from 'fumadocs-typescript/ui';
+
+## Introduction
+
+The `@postiva/client` is a simple and easy to use SDK for Postiva API. It provides a set of methods to interact with the API and it's built with Typescript.
+
+- **Easy to Use**: It is designed to be simple and easy to use.
+- **Type Safety**: It is built with TypeScript to ensure type safety.
+- **Developer-Friendly**: It is designed to be developer-friendly and easy to use.
+
+## Setup
+
+<Steps>
+<Step>
+
+### Install
+
+```package-install
+@postiva/client
+```
+
+</Step>
+
+<Step>
+
+### Envrionment Variables
+
+Create a `.env` file in the root of your project and add the following:
+
+<Callout title="Info">
+Please register on our platform to obtain your API key and workspace ID from the control panel. You can find your workspace ID in the account settings after registration.
+</Callout>
+
+<Tabs id="library" items={['Nextjs', 'Vite']}>
+<Tab value="nextjs">
+```yml title=".env"
+NEXT_PUBLIC_POSTIVA_API_KEY=your-api-key
+NEXT_PUBLIC_WORKSPACE_ID=your-workspace-id
+```
+</Tab>
+<Tab value="vite">
+```yml title=".env"
+VITE_POSTIVA_API_KEY=your-api-key
+VITE_POSTIVA_WORKSPACE_ID=your-workspace-id
+```
+</Tab>
+</Tabs>
+
+</Step>
+
+<Step>
+
+### Initialize
+
+<Tabs id="library" items={['Nextjs', 'Vite']}>
+<Tab value="nextjs">
+```ts title="libs/postiva.ts"
+import { createClient } from '@postiva/client';
+
+export const postivaClient = createClient({
+  apiKey: process.env.NEXT_PUBLIC_POSTIVA_API_KEY,
+  workspaceId: process.env.NEXT_PUBLIC_WORKSPACE_ID,
+});
+```
+</Tab>
+<Tab value="vite">
+```ts title="libs/postiva.ts"
+import { createClient } from '@postiva/client';
+
+export const postivaClient = createClient({
+  apiKey: process.env.VITE_POSTIVA_API_KEY,
+  workspaceId: process.env.VITE_POSTIVA_WORKSPACE_ID,
+});
+```
+</Tab>
+</Tabs>
+
+### Parameters
+
+<AutoTypeTable path="./content/docs/props.ts" name="createClientParameters" />
+
+</Step>
+
+</Steps>

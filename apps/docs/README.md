@@ -1,57 +1,26 @@
-# Docus Starter
+# docs
 
-Starter template for [Docus](https://docus.dev).
+This is a Next.js application generated with
+[Create Fumadocs](https://github.com/fuma-nama/fumadocs).
 
-## Clone
-
-Clone the repository (using `nuxi`):
-
-```bash
-npx nuxi init -t themes/docus
-```
-
-## Setup
-
-Install dependencies:
+Run development server:
 
 ```bash
-yarn install
-```
-
-## Development
-
-```bash
+npm run dev
+# or
+pnpm dev
+# or
 yarn dev
 ```
 
-## Edge Side Rendering
+Open http://localhost:3000 with your browser to see the result.
 
-Can be deployed to Vercel Functions, Netlify Functions, AWS, and most Node-compatible environments.
+## Learn More
 
-Look at all the available presets [here](https://v3.nuxtjs.org/guide/deploy/presets).
+To learn more about Next.js and Fumadocs, take a look at the following
+resources:
 
-```bash
-yarn build
-```
-
-## Static Generation
-
-Use the `generate` command to build your application.
-
-The HTML files will be generated in the .output/public directory and ready to be deployed to any static compatible hosting.
-
-```bash
-yarn generate
-```
-
-## Preview build
-
-You might want to preview the result of your build locally, to do so, run the following command:
-
-```bash
-yarn preview
-```
-
----
-
-For a detailed explanation of how things work, check out [Docus](https://docus.dev).
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
+  features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Fumadocs](https://fumadocs.vercel.app) - learn about Fumadocs
