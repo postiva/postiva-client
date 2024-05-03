@@ -18,9 +18,9 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=installer /app/ .
 COPY --from=pruner /app/out/full/ .
-RUN export COREPACK_ENABLE_STRICT=0 && pnpm build --filter=@postiva/web
+RUN export COREPACK_ENABLE_STRICT=0 && pnpm build --filter=@postiva/docs
 
 FROM base AS runner
 WORKDIR /app
 COPY --from=builder /app/ .
-CMD export COREPACK_ENABLE_STRICT=0 && pnpm start --filter=@postiva/web
+CMD export COREPACK_ENABLE_STRICT=0 && pnpm start --filter=@postiva/docs
