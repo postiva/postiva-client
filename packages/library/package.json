@@ -48,7 +48,6 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "clean": "rimraf coverage build tmp",
-    "prebuild": "npm run lint",
     "test": "jest --coverage",
     "prettier": "prettier --config .prettierrc --write .",
     "test:watch": "jest --watch"
