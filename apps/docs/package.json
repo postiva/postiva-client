@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@postiva/client": "workspace:^",
+    "@postiva/client": "0.0.27",
     "fumadocs-core": "^11.0.4",
     "fumadocs-docgen": "^1.0.1",
     "fumadocs-mdx": "^8.2.13",
