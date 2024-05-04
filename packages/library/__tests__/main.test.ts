@@ -1,13 +1,16 @@
 import { createClient } from "../src/index.js";
 
-test('create client get contents', async () => {
-  const client = await createClient('x4losqfnsfui1w6phtphtx3o', "test");
+test("create client get contents", async () => {
+  const client = await createClient({
+    apiKey: "test",
+    workspaceId: "test",
+  });
 
-  const contents = await client.getContents();
+  const contents = await client.contents.getContents();
 
-  if (contents.length === 0) {
+  if (contents.data.length === 0) {
     throw new Error("Contents not found");
   }
 
-  expect(contents.length).toBeGreaterThan(0);
+  expect(contents.data.length).toBeGreaterThan(0);
 });
