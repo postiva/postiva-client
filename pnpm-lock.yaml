@@ -18,7 +18,7 @@ importers:
   apps/docs:
     dependencies:
       '@postiva/client':
-        specifier: workspace:^
+        specifier: ^0.0.27
         version: link:../../packages/library
       fumadocs-core:
         specifier: ^11.0.4
