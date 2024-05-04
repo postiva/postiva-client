@@ -1,8 +1,8 @@
 import { DocsLayout } from "fumadocs-ui/layout";
 import { Metadata } from "next";
 import { Suspense, type ReactNode } from "react";
-import { Logo } from "../components/logo";
-import { pageTree } from "../source";
+import { Logo } from "../../components/logo";
+import { pageTree } from "../../utils/source";
 
 export const metadata: Metadata = {
   title: {

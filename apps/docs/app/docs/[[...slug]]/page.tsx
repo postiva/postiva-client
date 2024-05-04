@@ -1,4 +1,4 @@
-import { getPage, getPages } from "@/app/source";
+import { getPage, getPages } from "@/utils/source";
 import { DocsBody, DocsPage } from "fumadocs-ui/page";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";

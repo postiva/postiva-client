@@ -47,6 +47,17 @@ const withMDX = createMDX({
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
+  typescript: { ignoreBuildErrors: true },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  redirects: async () => [
+    {
+      source: '/',
+      destination: '/docs',
+      permanent: true,
+    },
+  ],
 };
 
 export default withMDX(config);

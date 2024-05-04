@@ -1,7 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import { TerminalIcon } from "lucide-react";
 
-export function create({
+export default function create({
   icon: Icon,
 }: {
   icon?: LucideIcon;
