@@ -1,5 +1,4 @@
 FROM node:22 as base
-RUN apk update
 RUN npm install -g pnpm
 
 FROM base AS pruner
