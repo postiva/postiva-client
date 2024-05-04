@@ -55,11 +55,18 @@ VITE_POSTIVA_WORKSPACE_ID=your-workspace-id
 
 <Step>
 
-### Initialize
+### Initialize Client
 
 <Tabs id="library" items={['Nextjs', 'Vite']}>
 <Tab value="nextjs">
-```ts title="libs/postiva.ts"
+```ts twoslash title="libs/postiva.ts"
+declare const process: {
+  env: {
+    NEXT_PUBLIC_POSTIVA_API_KEY: string;
+    NEXT_PUBLIC_WORKSPACE_ID: string;
+  };
+};
+// ---cut---
 import { createClient } from '@postiva/client';
 
 export const postivaClient = createClient({

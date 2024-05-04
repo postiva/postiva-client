@@ -1,47 +1,7 @@
 import { DocsLayout } from "fumadocs-ui/layout";
-import { Metadata } from "next";
 import { Suspense, type ReactNode } from "react";
 import { Logo } from "../../components/logo";
 import { pageTree } from "../../utils/source";
-
-export const metadata: Metadata = {
-  title: {
-    default: "Postiva Client Documentation",
-    template: "%s - Postiva",
-  },
-  openGraph: {
-    title: "Postiva Client Documentation",
-    type: "website",
-    url: "https://docs.postiva.app/",
-    images: [
-      {
-        url: "/images/og_image.png",
-        width: 1200,
-        height: 630,
-        alt: "Postiva Client Documentation",
-      },
-    ],
-    description: "Postiva Client Documentation",
-    siteName: "Postiva",
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@Postiva",
-    title: "Postiva - Content Creation and Sharing Made Easy",
-    description:
-      "Discover Postiva's intuitive platform that simplifies content creation, management, and sharing for creators and businesses alike.",
-    images: ["/images/og_image.png"],
-    creator: "@postivaapp",
-  },
-  icons: [
-    {
-      rel: "icon",
-      type: "image/png",
-      url: "/favicon.ico",
-    },
-  ],
-  metadataBase: new URL("https://docs.postiva.app"),
-};
 
 export default function RootDocsLayout({ children }: { children: ReactNode }) {
   return (
