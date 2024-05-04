@@ -1,4 +1,6 @@
 import { RootProvider } from "fumadocs-ui/provider";
+
+import "fumadocs-ui/twoslash.css";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import type { ReactNode } from "react";

@@ -9,11 +9,17 @@ export default function RootDocsLayout({ children }: { children: ReactNode }) {
       tree={pageTree}
       nav={{
         title: <Logo />,
-        url: "/",
+        url: "https://postiva.app",
         enabled: true,
-        transparentMode: "always",
+        transparentMode: "top",
         githubUrl: "https://github.com/postiva/postiva-client",
       }}
+      links={[
+        {
+          text: "Documentation",
+          url: "/",
+        },
+      ]}
       sidebar={{
         collapsible: false,
         footer: (
