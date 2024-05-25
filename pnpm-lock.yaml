@@ -18,8 +18,8 @@ importers:
   apps/docs:
     dependencies:
       '@postiva/client':
-        specifier: 0.0.27
-        version: 0.0.27
+        specifier: workspace:*
+        version: link:../../packages/library
       fumadocs-core:
         specifier: ^11.0.4
         version: 11.0.4(@types/react@18.3.1)(next@14.0.4)(react-dom@18.3.1)(react@18.3.1)
@@ -1323,10 +1323,6 @@ packages:
     engines: {node: '>=14'}
     requiresBuild: true
     optional: true
-
-  /@postiva/client@0.0.27:
-    resolution: {integrity: sha512-o/wGWjnEHD30pBDmpXgrYuRaCH+Wtrqu8wxSS3SRM1HL9SzPe2zQedjLwfkt/XrA5jPHk85by/G/qSuHoE++mw==}
-    dev: false
 
   /@radix-ui/number@1.0.1:
     resolution: {integrity: sha512-T5gIdVO2mmPW3NNhjNgEP3cqMXjXL9UbO0BzWcXfvdBs+BohbQxvd/K5hSVKmn9/lbTdsQVKbUcP5WLCwvUbBg==}

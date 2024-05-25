@@ -30,9 +30,9 @@ async function getContents() {
 import { postivaClient } from "@/libs/postiva";
 import { GetContentsType, ContentStatusEnum } from '@postiva/client'
 
-async function getContentsWithQuery({ query, type=ContentStatusEnum.published, category }: GetContentsType) {
+async function getContentsWithQuery({ query, type=ContentStatusEnum.published, categories }: GetContentsType) {
   try {
-    const contents = await client.getContents({ query, type, category });
+    const contents = await client.getContents({ query, type, categories });
     console.log(contents);
   } catch (error) {
     console.error('Error fetching contents:', error);
