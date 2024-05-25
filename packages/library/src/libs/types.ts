@@ -100,7 +100,7 @@ export enum ContentStatusEnum {
 
 export interface GetContentsType {
   query?: string;
-  category?: string;
+  categories?: string[];
   type?: ContentStatusEnum;
 }
 

@@ -54,8 +54,9 @@ export class Contents {
       url.searchParams.append("query", filters.query);
     }
 
-    if (filters?.category) {
-      url.searchParams.append("category", filters.category);
+    if (filters?.categories) {
+      const categories = filters.categories.join(",");
+      url.searchParams.append("categories", categories);
     }
 
     if (filters?.type) {
