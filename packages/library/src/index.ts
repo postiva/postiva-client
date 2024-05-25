@@ -1,6 +1,5 @@
 import { PostivaClient } from "./classes/PostivaClient";
 import { PostivaClientOptions } from "./libs/types";
-export * from "./libs/types";
 
 export interface createClientParameters {
   apiKey: string;
