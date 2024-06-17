@@ -3,7 +3,7 @@ RUN npm install -g pnpm
 
 FROM base AS pruner
 WORKDIR /app
-RUN npm install turbo -g
+RUN npm install turbo@1.11.3 -g
 COPY . .
 RUN turbo prune --scope=@postiva/docs --docker
 
