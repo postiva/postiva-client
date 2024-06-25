@@ -1,0 +1,133 @@
+---
+title: Type Definitions
+description: Type Definitions for Postiva
+icon: GitCompareArrows
+---
+
+The `types` module provides type definitions for the Postiva API.
+
+## getContents
+
+Get all contents from the workspace.
+
+<Tabs items={['Basic', 'With parameters', 'With Pagination']}>
+  <Tab value="Basic">
+```typescript
+import { postivaClient } from "@/libs/postiva";
+
+async function getContents() {
+  try {
+    const contents = await postivaClient.contents.getContents();
+    console.log(contents);
+  } catch (error) {
+    console.error('Error fetching contents:', error);
+  }
+}
+```
+  </Tab>
+  <Tab value="With parameters">
+```typescript
+import { postivaClient } from "@/libs/postiva";
+import { GetContentsType, ContentStatusEnum } from '@postiva/client'
+
+async function getContentsWithQuery({ query, type=ContentStatusEnum.published, categories }: GetContentsType) {
+  try {
+    const contents = await client.getContents({ query, type, categories });
+    console.log(contents);
+  } catch (error) {
+    console.error('Error fetching contents:', error);
+  }
+}
+```  
+  </Tab>
+  <Tab value="With Pagination">
+```typescript
+import { postivaClient } from "@/libs/postiva";
+import { GetContentsType, ContentStatusEnum } from '@postiva/client'
+
+async function getContentsWithPagination({ query, type=ContentStatusEnum.published, category }: GetContentsType) {
+  try {
+    const contents = await client.getContents({ query, type, category }).pagination({ size: 10, page: 1 })
+    console.log(contents);
+  } catch (error) {
+    console.error('Error fetching contents:', error);
+  }
+}
+```  
+  </Tab>
+</Tabs>
+
+### Parameters
+
+import { AutoTypeTable } from 'fumadocs-typescript/ui';
+
+<AutoTypeTable path="./content/docs/props.ts" name="GetContentsType" />
+
+## searchContents
+
+Search for contents in the workspace.
+
+```typescript
+import { postivaClient } from "@/libs/postiva";
+
+async function searchContents(query: string) {
+  try {
+    const content = await postivaClient.contents.searchContents(query);
+    console.log(content);
+  } catch (error) {
+    console.error('Error fetching content:', error);
+  }
+}
+```
+
+
+## getContentById
+
+Get a content by its ID.
+
+```typescript
+import { postivaClient } from "@/libs/postiva";
+
+async function getContentById(id: string) {
+  try {
+    const content = await postivaClient.contents.getContentById(id);
+    console.log(content);
+  } catch (error) {
+    console.error('Error fetching content:', error);
+  }
+}
+```
+
+## getContentBySlug
+
+Get a content by its slug.
+
+```typescript
+import { postivaClient } from "@/libs/postiva";
+
+async function getContentBySlug(slug: string) {
+  try {
+    const content = await postivaClient.contents.getContentBySlug(slug);
+    console.log(content);
+  } catch (error) {
+    console.error('Error fetching content:', error);
+  }
+}
+```
+
+## Clap
+
+Clap for a content.
+
+```typescript
+import { postivaClient } from "@/libs/postiva";
+
+async function clapContent(id: string) {
+  try {
+    const content = await postivaClient.contents.calp(id);
+    console.log(content);
+  } catch (error) {
+    console.error('Error clapping content:', error);
+  }
+}
+```

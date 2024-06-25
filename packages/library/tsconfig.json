@@ -17,6 +17,9 @@
     "noImplicitAny": false,
     "noImplicitThis": false,
     "strictNullChecks": false,
+    "paths": {
+      "tslib": ["./node_modules/tslib/tslib.d.ts"]
+    }
   },
   "files": ["src/libs/types.ts"],
   "include": ["src/**/*", "__tests__/**/*"]
