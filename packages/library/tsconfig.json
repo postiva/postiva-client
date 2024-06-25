@@ -19,7 +19,8 @@
     "strictNullChecks": false,
     "paths": {
       "tslib": ["./node_modules/tslib/tslib.d.ts"]
-    }
+    },
+    "resolveJsonModule": true
   },
   "files": ["src/libs/types.ts"],
   "include": ["src/**/*", "__tests__/**/*"]
