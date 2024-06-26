@@ -36,8 +36,8 @@ importers:
         specifier: ^2.0.0
         version: 2.0.1(typescript@5.5.2)
       fumadocs-ui:
-        specifier: ^11.0.4
-        version: 11.3.2(@types/react-dom@18.3.0)(@types/react@18.3.3)(next@14.1.0)(react-dom@18.3.1)(react@18.3.1)(tailwindcss@3.4.4)
+        specifier: ^12.2.5
+        version: 12.2.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(next@14.1.0)(react-dom@18.3.1)(react@18.3.1)(tailwindcss@3.4.4)
       lucide-react:
         specifier: ^0.378.0
         version: 0.378.0(react@18.3.1)
@@ -4616,6 +4616,36 @@ packages:
       - supports-color
     dev: false
 
+  /fumadocs-core@12.2.5(@types/react@18.3.3)(next@14.1.0)(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-AKr3H4DZNA4882dRgX9CKYkiDFvBT93CV+mYAKiXw/AV9PUvoNN9PfppWXYVK+31UTqvLuw+hSQOR1X9ADGiYw==}
+    peerDependencies:
+      next: '>= 14.1.0'
+      react: '>= 18'
+      react-dom: '>= 18'
+    dependencies:
+      '@formatjs/intl-localematcher': 0.5.4
+      '@shikijs/rehype': 1.9.1
+      '@shikijs/transformers': 1.9.1
+      flexsearch: 0.7.21
+      github-slugger: 2.0.0
+      negotiator: 0.6.3
+      next: 14.1.0(react-dom@18.3.1)(react@18.3.1)
+      npm-to-yarn: 2.2.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      react-remove-scroll: 2.5.10(@types/react@18.3.3)(react@18.3.1)
+      remark: 15.0.1
+      remark-gfm: 4.0.0
+      remark-mdx: 3.0.1
+      scroll-into-view-if-needed: 3.1.0
+      shiki: 1.9.1
+      swr: 2.2.5(react@18.3.1)
+      unist-util-visit: 5.0.0
+    transitivePeerDependencies:
+      - '@types/react'
+      - supports-color
+    dev: false
+
   /fumadocs-docgen@1.0.2(typescript@5.5.2):
     resolution: {integrity: sha512-NwkQww+yRVONUDsPoJKiw/p+BNf2UTVRA1FYabuH8TCphCypvvVheCAhddlcH3l0wMF9bBobk9OtEoiL80OD9Q==}
     dependencies:
@@ -4675,8 +4705,8 @@ packages:
       - supports-color
     dev: false
 
-  /fumadocs-ui@11.3.2(@types/react-dom@18.3.0)(@types/react@18.3.3)(next@14.1.0)(react-dom@18.3.1)(react@18.3.1)(tailwindcss@3.4.4):
-    resolution: {integrity: sha512-6FaSLXfNm3qYjgH7aT56myMH47WUFoXOZMiH3+TJLfKnxtSE3LbSYVeVHqJN5Ijg8gsKVbbU4alvLUYjbWhIGg==}
+  /fumadocs-ui@12.2.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(next@14.1.0)(react-dom@18.3.1)(react@18.3.1)(tailwindcss@3.4.4):
+    resolution: {integrity: sha512-Cl8AfPrUF2qBAfBu+cIBsyN+ICmNDSTnT7h6uUmnulPaAPLBY8k1VOrdtHn/+zUZxG6Vyxo0cWpt55Kjv0qpBg==}
     peerDependencies:
       next: '>= 14.1.0'
       react: '>= 18'
@@ -4688,13 +4718,12 @@ packages:
       '@radix-ui/react-direction': 1.1.0(@types/react@18.3.3)(react@18.3.1)
       '@radix-ui/react-popover': 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
       '@radix-ui/react-scroll-area': 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
-      '@radix-ui/react-select': 2.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
       '@radix-ui/react-tabs': 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
       '@tailwindcss/typography': 0.5.13(tailwindcss@3.4.4)
       class-variance-authority: 0.7.0
       cmdk: 1.0.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
-      fumadocs-core: 11.3.2(@types/react@18.3.3)(next@14.1.0)(react-dom@18.3.1)(react@18.3.1)
-      lucide-react: 0.379.0(react@18.3.1)
+      fumadocs-core: 12.2.5(@types/react@18.3.3)(next@14.1.0)(react-dom@18.3.1)(react@18.3.1)
+      lucide-react: 0.395.0(react@18.3.1)
       next: 14.1.0(react-dom@18.3.1)(react@18.3.1)
       next-themes: 0.3.0(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
@@ -6133,8 +6162,8 @@ packages:
       react: 18.3.1
     dev: false
 
-  /lucide-react@0.379.0(react@18.3.1):
-    resolution: {integrity: sha512-KcdeVPqmhRldldAAgptb8FjIunM2x2Zy26ZBh1RsEUcdLIvsEmbcw7KpzFYUy5BbpGeWhPu9Z9J5YXfStiXwhg==}
+  /lucide-react@0.395.0(react@18.3.1):
+    resolution: {integrity: sha512-6hzdNH5723A4FLaYZWpK50iyZH8iS2Jq5zuPRRotOFkhu6kxxJiebVdJ72tCR5XkiIeYFOU5NUawFZOac+VeYw==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:

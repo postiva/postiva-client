@@ -1,5 +1,6 @@
 import { DocsLayout } from "fumadocs-ui/layout";
-import { Suspense, type ReactNode } from "react";
+import { GithubIcon, HomeIcon, SquareLibrary, TwitterIcon } from "lucide-react";
+import { type ReactNode } from "react";
 import { Logo } from "../../components/logo";
 import { pageTree } from "../../utils/source";
 
@@ -16,17 +17,33 @@ export default function RootDocsLayout({ children }: { children: ReactNode }) {
       }}
       links={[
         {
-          text: "Documentation",
-          url: "/",
+          icon: <HomeIcon />,
+          text: "Website",
+          url: "https://postiva.app",
+        },
+        {
+          icon: <SquareLibrary />,
+          text: "Blogs",
+          url: "https://postiva.app/blogs",
+        },
+        {
+          icon: <GithubIcon />,
+          text: "Github",
+          url: "https://github.com/postiva/postiva-client",
+        },
+        {
+          icon: <TwitterIcon />,
+          text: "Twitter",
+          url: "https://x.com/postivaapp",
         },
       ]}
       sidebar={{
-        collapsible: false,
-        footer: (
-          <Suspense>
-            <SidebarFooter />
-          </Suspense>
-        ),
+        collapsible: true,
+        // footer: (
+        //   <Suspense>
+        //     <SidebarFooter />
+        //   </Suspense>
+        // ),
       }}
     >
       {children}
