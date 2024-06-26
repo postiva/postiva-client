@@ -1,3 +1,4 @@
+import { NpmIcon } from "@/components/icons/npm";
 import { DocsLayout } from "fumadocs-ui/layout";
 import { GithubIcon, HomeIcon, SquareLibrary, TwitterIcon } from "lucide-react";
 import { type ReactNode } from "react";
@@ -13,7 +14,6 @@ export default function RootDocsLayout({ children }: { children: ReactNode }) {
         url: "https://postiva.app",
         enabled: true,
         transparentMode: "top",
-        githubUrl: "https://github.com/postiva/postiva-client",
       }}
       links={[
         {
@@ -35,6 +35,11 @@ export default function RootDocsLayout({ children }: { children: ReactNode }) {
           icon: <TwitterIcon />,
           text: "Twitter",
           url: "https://x.com/postivaapp",
+        },
+        {
+          icon: <NpmIcon />,
+          text: "Npm",
+          url: "https://npmjs.com/package/@postiva/client",
         },
       ]}
       sidebar={{
