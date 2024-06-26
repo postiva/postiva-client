@@ -1,3 +1,4 @@
+// checkUpdate.ts
 import boxen from "boxen";
 import chalk from "chalk";
 import pkgJson from "package-json";
@@ -10,16 +11,19 @@ const capitalizeFirstLetter = (str: string) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
+let updateChecked = false;
+
 export const checkUpdate = async () => {
+  if (updateChecked) return;
+  updateChecked = true;
+
   const { version: latestVersion } = await pkgJson(name);
 
-  // check if local package version is less than the remote version
   const updateAvailable = semver.lt(version, latestVersion as string);
 
   if (updateAvailable) {
     let updateType = "";
 
-    // check the type of version difference which is usually patch, minor, major etc.
     let verDiff = semverDiff(version, latestVersion as string);
 
     if (verDiff) {
@@ -33,7 +37,6 @@ export const checkUpdate = async () => {
       runUpdate: `Run ${chalk.cyan(`npm i -g ${name}`)} to update`,
     };
 
-    // notify the user about the available udpate
     console.log(
       boxen(`${msg.updateAvailable}\n${msg.runUpdate}`, {
         margin: 1,

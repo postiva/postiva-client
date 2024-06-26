@@ -13,6 +13,5 @@ export const createClient = ({
   workspaceId,
   options,
 }: createClientParameters) => {
-  // checkUpdate();
   return new PostivaClient(workspaceId, apiKey, options);
 };
