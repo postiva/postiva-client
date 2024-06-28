@@ -59,6 +59,11 @@ export class Contents {
       url.searchParams.append("categories", categories);
     }
 
+    if (filters?.tags) {
+      const tags = filters.tags.join(",");
+      url.searchParams.append("tags", tags);
+    }
+
     if (filters?.type) {
       url.searchParams.append("type", filters.type);
     } else {

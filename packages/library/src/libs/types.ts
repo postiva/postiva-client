@@ -59,6 +59,7 @@ export interface ContentAnalytics {
 
 export interface DetailContent extends Content {
   analytics: ContentAnalytics;
+  similarityContents: SimilarContent[];
 }
 
 export interface Content {
@@ -67,6 +68,7 @@ export interface Content {
   type: string;
   createdAt: string;
   updatedAt: string;
+  tags: string[];
   categories: ContentCategory[];
   publishedBy: ContentPublishedBy | null;
   description: string | null;
@@ -80,6 +82,20 @@ export interface Content {
   seoThumbnail: string | null;
   readingStatus: ContentReadingStatus | null;
   analytics: ContentAnalytics | null;
+}
+
+export interface SimilarContent {
+  id: string;
+  slug: string;
+  title: string;
+  description: string | null;
+  tags: string;
+  thumbnail: string | null;
+  createdAt: string;
+  publishedBy: ContentPublishedBy | null;
+  publishedAt: string;
+  readingStatus: ContentReadingStatus;
+  type: ContentStatusEnum;
 }
 
 export interface ClapParams {
@@ -101,6 +117,7 @@ export enum ContentStatusEnum {
 export interface GetContentsType {
   query?: string;
   categories?: string[];
+  tags?: string[];
   type?: ContentStatusEnum;
 }
 
