@@ -10,9 +10,6 @@ export function Logo() {
         width={110}
         height={110}
       />
-      <div className="absolute -right-2.5 top-0.5 text-muted-foreground hover:text-accent-foreground">
-        .
-      </div>
     </div>
   );
 }

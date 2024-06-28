@@ -1,0 +1,24 @@
+---
+title: Claps
+description: Methods for managing claps in Postiva
+icon: FileLineChart
+---
+
+The `claps` module provides methods to interact with the claps API.
+
+## Clap
+
+Clap for a content.
+
+```typescript
+import { postivaClient } from "@/libs/postiva";
+
+async function clapContent(id: string) {
+  try {
+    const content = await postivaClient.contents.calp(id);
+    console.log(content);
+  } catch (error) {
+    console.error('Error clapping content:', error);
+  }
+}
+```

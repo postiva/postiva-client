@@ -4,15 +4,16 @@ export type {
   APIResponse,
   Content,
   ContentAnalytics,
+  ContentCategory,
+  ContentPublishedBy,
   ContentsResponse,
   GetCategoriesType,
   GetContentsType,
   IPagination,
   PaginationResponse,
-  createClientParameters,
   PostivaClientOptions,
-  ContentCategory,
-  ContentPublishedBy
+  createClientParameters,
+  SimilarContent,
 } from "@postiva/client";
 
 export interface IAPIRes extends APIResponse<Content> {}
