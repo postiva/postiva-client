@@ -12,8 +12,8 @@ export type {
   IPagination,
   PaginationResponse,
   PostivaClientOptions,
-  createClientParameters,
   SimilarContent,
+  createClientParameters,
 } from "@postiva/client";
 
 export interface IAPIRes extends APIResponse<Content> {}

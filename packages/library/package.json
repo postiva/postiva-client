@@ -14,19 +14,27 @@
     "api",
     "client",
     "cms",
-    "blog",
-    "news",
-    "newsletter",
+    "nuxt-cms",
+    "content-management",
+    "headless-cms",
     "content-api"
   ],
   "description": "A comprehensive library for managing and retrieving content within your applications, @postiva/client streamlines your interaction with the Postiva platform, ensuring your content is always current and easily accessible.",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "files": [
     "README.md",
     "dist"
   ],
+  "exports": {
+    ".": {
+      "main": "./dist/index.js",
+      "module": "./dist/index.mjs",
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
   "devDependencies": {
     "@types/jest": "~29.5",
@@ -55,7 +63,7 @@
   },
   "author": {
     "name": "Postiva",
-    "email": "helo@postiva.app"
+    "email": "hello@postiva.app"
   },
   "license": "Apache-2.0",
   "volta": {
