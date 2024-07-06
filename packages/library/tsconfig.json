@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "CommonJS",
+    "target": "ES2016",
+    "module": "ESNext",
     "moduleResolution": "node",
     "rootDir": ".",
-    "outDir": "build",
+    "outDir": "dist",
     "allowSyntheticDefaultImports": true,
     "importHelpers": true,
     "alwaysStrict": true,
@@ -20,6 +20,7 @@
     "paths": {
       "tslib": ["./node_modules/tslib/tslib.d.ts"]
     },
+    "esModuleInterop": true,
     "resolveJsonModule": true
   },
   "files": ["src/libs/types.ts"],
