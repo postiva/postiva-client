@@ -15,7 +15,7 @@ import { postivaClient } from "@/libs/postiva";
 
 async function clapContent(id: string) {
   try {
-    const content = await postivaClient.contents.calp(id);
+    const content = await postivaClient.contents.clap(id);
     console.log(content);
   } catch (error) {
     console.error('Error clapping content:', error);
