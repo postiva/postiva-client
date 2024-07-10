@@ -22,5 +22,5 @@ RUN export COREPACK_ENABLE_STRICT=0 && pnpm docs:build
 FROM base AS runner
 WORKDIR /app
 COPY --from=builder /app/ .
-EXPOSE 4000
+EXPOSE 3000
 CMD export COREPACK_ENABLE_STRICT=0 && pnpm docs:start
