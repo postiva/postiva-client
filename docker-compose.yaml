@@ -8,3 +8,15 @@ services:
     restart: always
     ports:
       - "4000:4000"
+    networks:
+      - dokploy-network
+    labels:
+     - "traefik.enable=true"
+     - "traefik.http.routers.docs.entrypoints=websecure"
+     - "traefik.http.routers.docs.tls.certResolver=letsencrypt"
+     - "traefik.http.routers.docs.rule=Host(`docs.postiva.app`)"
+     - "traefik.http.services.docs.loadbalancer.server.port=5000"
+
+networks:
+  dokploy-network:
+    external: true
