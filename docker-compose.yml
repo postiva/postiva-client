@@ -7,7 +7,7 @@ services:
       dockerfile: ./apps/docs/Dockerfile
     restart: always
     ports:
-      - "2000:3000"
+      - "2000:2000"
     networks:
       - dokploy-network
     labels:
@@ -15,7 +15,7 @@ services:
      - "traefik.http.routers.docs.entrypoints=websecure"
      - "traefik.http.routers.docs.tls.certResolver=letsencrypt"
      - "traefik.http.routers.docs.rule=Host(`docs.postiva.app`)"
-     - "traefik.http.services.docs.loadbalancer.server.port=3000"
+     - "traefik.http.services.docs.loadbalancer.server.port=2000"
 
 networks:
   dokploy-network:
