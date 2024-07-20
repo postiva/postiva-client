@@ -6,6 +6,7 @@ import {
   ContentStatusEnum,
   DetailContent,
   GetContentsType,
+  IPaginatinoOptions,
   PaginationResponse,
   PostivaClientOptions,
 } from "../libs/types";
@@ -28,14 +29,9 @@ export class Contents {
     this.fetcher = new Fetcher(this.workspaceId, this.apiKey, _options);
   }
 
-  getContents(filters?: GetContentsType): Promise<
-    PaginationResponse<Content[]>
-  > & {
-    pagination?: (params: {
-      page: number;
-      size: number;
-    }) => Promise<PaginationResponse<Content[]>>;
-  } {
+  async getContents(
+    filters?: GetContentsType & { pagination: IPaginatinoOptions }
+  ): Promise<PaginationResponse<Content[]>> {
     const defaultOptions = {
       method: "GET",
     };
@@ -62,36 +58,18 @@ export class Contents {
       url.searchParams.append("type", ContentStatusEnum.PUBLISHED);
     }
 
-    const fetchPromise: Promise<PaginationResponse<Content[]>> =
-      this.fetcher.request(url.toString(), defaultOptions);
+    if (filters?.pagination.page) {
+      url.searchParams.append("page", filters.pagination.page.toString());
+    }
 
-    const proxiedPromise = new Proxy(fetchPromise, {
-      get: (target, prop: string, receiver) => {
-        if (["then", "catch", "finally"].includes(prop)) {
-          return (...args) => (target as any)[prop](...args);
-        }
+    if (filters?.pagination.size) {
+      url.searchParams.append("size", filters.pagination.size.toString());
+    }
 
-        return Reflect.get(target, prop, receiver);
-      },
-    });
-
-    (proxiedPromise as any).pagination = async ({ page, size }) => {
-      const paginatedUrl = new URL(url.toString());
-      if (page) paginatedUrl.searchParams.set("page", page.toString());
-      if (size) paginatedUrl.searchParams.set("size", size.toString());
-
-      return this.fetcher.request<PaginationResponse<Content[]>>(
-        paginatedUrl.toString(),
-        defaultOptions
-      );
-    };
-
-    return proxiedPromise as Promise<PaginationResponse<Content[]>> & {
-      pagination?: (params: {
-        page: number;
-        size: number;
-      }) => Promise<PaginationResponse<Content[]>>;
-    };
+    return this.fetcher.request<PaginationResponse<Content[]>>(
+      url.toString(),
+      defaultOptions
+    );
   }
 
   async getContentById(id: string): Promise<DetailContent> {

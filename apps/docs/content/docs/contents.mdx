@@ -47,7 +47,7 @@ import { GetContentsType, ContentStatusEnum } from '@postiva/client'
 
 async function getContentsWithPagination({ query, type=ContentStatusEnum.published, category }: GetContentsType) {
   try {
-    const contents = await client.getContents({ query, type, category }).pagination({ size: 10, page: 1 })
+    const contents = await client.getContents({ query, type, category, pagination: { page: 1, size: 10 } });
     console.log(contents);
   } catch (error) {
     console.error('Error fetching contents:', error);
