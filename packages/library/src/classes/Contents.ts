@@ -6,7 +6,6 @@ import {
   ContentStatusEnum,
   DetailContent,
   GetContentsType,
-  IPaginatinoOptions,
   PaginationResponse,
   PostivaClientOptions,
 } from "../libs/types";
@@ -30,7 +29,7 @@ export class Contents {
   }
 
   async getContents(
-    filters?: GetContentsType & { pagination: IPaginatinoOptions }
+    filters?: GetContentsType
   ): Promise<PaginationResponse<Content[]>> {
     const defaultOptions = {
       method: "GET",
@@ -58,11 +57,11 @@ export class Contents {
       url.searchParams.append("type", ContentStatusEnum.PUBLISHED);
     }
 
-    if (filters?.pagination.page) {
+    if (filters?.pagination?.page) {
       url.searchParams.append("page", filters.pagination.page.toString());
     }
 
-    if (filters?.pagination.size) {
+    if (filters?.pagination?.size) {
       url.searchParams.append("size", filters.pagination.size.toString());
     }
 

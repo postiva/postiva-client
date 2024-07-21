@@ -15,7 +15,7 @@ export interface APIResponse<T> {
 
 export interface PaginationResponse<T> {
   data: T;
-  pagination?: IPagination;
+  pagination: IPagination;
 }
 
 export interface IPaginatinoOptions {
@@ -119,6 +119,7 @@ export interface GetContentsType {
   categories?: string[];
   tags?: string[];
   type?: ContentStatusEnum;
+  pagination?: IPaginatinoOptions;
 }
 
 export interface GetCategoriesType {
