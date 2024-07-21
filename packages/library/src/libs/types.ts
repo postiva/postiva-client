@@ -122,6 +122,11 @@ export interface GetContentsType {
   pagination?: IPaginatinoOptions;
 }
 
+export interface GetRandomContents {
+  tags?: string[];
+  limit: number;
+}
+
 export interface GetCategoriesType {
   query?: string;
 }

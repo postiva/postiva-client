@@ -6,6 +6,7 @@ import {
   ContentStatusEnum,
   DetailContent,
   GetContentsType,
+  GetRandomContents,
   PaginationResponse,
   PostivaClientOptions,
 } from "../libs/types";
@@ -104,6 +105,29 @@ export class Contents {
 
     const { data } = await this.fetcher.request<APIResponse<Content[]>>(
       `contents/search?query=${query}`,
+      defaultOptions
+    );
+
+    return data;
+  }
+
+  async getRandomContents(params: GetRandomContents): Promise<Content[]> {
+    const defaultOptions = {
+      method: "GET",
+    };
+    const url = new URL("contents", this.fetcher.getApiURL());
+
+    if (params?.tags) {
+      const tags = params.tags.join(",");
+      url.searchParams.append("tags", tags);
+    }
+
+    if (params?.limit) {
+      url.searchParams.append("limit", params.limit.toString());
+    }
+
+    const { data } = await this.fetcher.request<APIResponse<Content[]>>(
+      url.toString(),
       defaultOptions
     );
 
