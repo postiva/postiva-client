@@ -115,7 +115,7 @@ export class Contents {
     const defaultOptions = {
       method: "GET",
     };
-    const url = new URL("contents", this.fetcher.getApiURL());
+    const url = new URL("contents/random", this.fetcher.getApiURL());
 
     if (params?.tags) {
       const tags = params.tags.join(",");

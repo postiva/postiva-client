@@ -124,7 +124,7 @@ export interface GetContentsType {
 
 export interface GetRandomContents {
   tags?: string[];
-  limit: number;
+  limit?: number;
 }
 
 export interface GetCategoriesType {
