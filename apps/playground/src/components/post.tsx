@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function PostCard({ post }: { post: Content }) {
   const handleClap = async () => {
-    const response = await postivaClient.contents.clap(post.id);
+    const response = await postivaClient.contents.clap(post.id, {count:1});
     console.log("response", response);
   };
 
