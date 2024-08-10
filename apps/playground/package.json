@@ -8,7 +8,7 @@
     "start": "next start -p 4000"
   },
   "dependencies": {
-    "@postiva/client": "workspace:^",
+    "@postiva/client": "0.0.41",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18"
